@@ -3,6 +3,7 @@ import { styles } from '../styles';
 import { useNavigate } from 'react-router-dom';
 
 import FormField from '../components/FormField';
+import { SectionWrapper } from '../hoc';
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
@@ -53,7 +54,7 @@ const SignUp = () => {
   }
 
   return (
-    <div className='flex flex-col items-center h-screen w-full h-full bg-gray-100 rounded-xl px-3 py-2 '>
+    <div className='flex flex-wrap items-center w-full h-full bg-gray-100 rounded-xl px-3 py-2 '>
       <div className="p-2 mb-2 w-full flex flex-col items-center justify-center">
         <p className="font-bold text-black text-[30px] underline">Create New Account</p>
       </div>
@@ -194,4 +195,5 @@ const SignUp = () => {
 };
 
 
-export default SignUp
+export default SectionWrapper(SignUp, "signup");
+// export default SignUp;
