@@ -5,8 +5,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import ValidationError 
 
-from .models import UserModel
-from .serializers import UserSerializer, UserDetailSerializer
+from .models import UserModel, FlightModel
+from .serializers import UserSerializer, UserDetailSerializer, FlightSerializer
 
 
 # Create your views here.
@@ -50,4 +50,34 @@ class UserRegistrationView(APIView):
 
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AddFlightView(APIView):
+    serializer_class = FlightSerializer
+
+    def post(self, request):
+        serializer = FlightSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response({"error":"something went wrong"}, status=status.HTTP_400_BAD_REQUEST)
+    
+
+class GetFlightsView(APIView):
+    serializer_class = FlightSerializer
+
+    def post(self, request):
+        arrival = request.data.get('arrival', '')
+        departure = request.data.get('departure', '')
+
+        
+        if FlightModel.objects.filter(arrival=arrival, departure=departure).exists():
+            flights = FlightModel.objects.filter(arrival=arrival, departure=departure)
+            serialized_flights = FlightSerializer(flights, many=True).data
+            return Response({"data": serialized_flights}, status=status.HTTP_200_OK)
+        else:
+            return Response({"data": ""}, status=status.HTTP_200_OK)
+        
+        return Response({"error":"something went wrong"}, status=status.HTTP_400_BAD_REQUEST)
+        
 

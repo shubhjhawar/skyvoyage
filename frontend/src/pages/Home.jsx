@@ -1,8 +1,15 @@
-import React from 'react'
+import React from 'react';
+
+import Hero from "../components/Hero";
+import SearchFlights from '../components/SearchFlights';
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <Hero />
+      <SearchFlights />
+    </div>
+    
   )
 }
 

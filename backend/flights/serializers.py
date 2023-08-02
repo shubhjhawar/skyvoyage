@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import UserModel, UserDetailModel
+from .models import UserModel, UserDetailModel, FlightModel
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -28,3 +28,9 @@ class UserDetailSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         print(attrs)  # Add this line to see the data during validation
         return super().validate(attrs)
+    
+class FlightSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FlightModel
+        fields = '__all__'
+        
