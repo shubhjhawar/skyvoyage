@@ -45,7 +45,7 @@ const SearchFlights = () => {
   return (
         <div id="search">
             <div className="flex flex-col  w-full h-full bg-gray-100 m-2 p-3 rounded-3xl">
-                <h1 className='text-[45px] font-bold mb-[20px] ml-[20px] underline pb-2'>Find the best flight for yourself, here!</h1>
+                <h1 className='text-[45px] font-bold mb-[20px] ml-[20px] pb-2'>Find the best flight for yourself, here!</h1>
                 <form className="flex flex-row justify-center items-center mb-[20px]"
                     onSubmit={handleSubmit}
                 >
