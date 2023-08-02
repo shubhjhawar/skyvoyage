@@ -15,15 +15,19 @@ class UserRegistrationView(APIView):
     serializer_class = UserSerializer
 
     def post(self, request):
-        # print(request.data)
         serializer = UserSerializer(data=request.data)
+        username = request.data.get('username', '')
+        email = request.data.get('email', '')
+
+        if UserModel.objects.filter(username=username).exists():
+            return Response({"error":"username already exists"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        if UserModel.objects.filter(email=email).exists():
+            return Response({"error":"email already exists"}, status=status.HTTP_400_BAD_REQUEST)
+
         if serializer.is_valid():
             user = serializer.save()
             user_info = UserModel.objects.get(id=user.id)
-
-             # Use the instance of UserModel instead of just the id
-                # 'date_joined': datetime.now(),
-                # **request.data
 
             user_detail_data = {
                 'user_info': user_info.id, 
@@ -36,14 +40,8 @@ class UserRegistrationView(APIView):
                 'country': request.data.get('country', ''),
             }
 
-            print(user_detail_data)
-
-            # request.data["user_info_id"] = user.id
-            # request.data["date_joined"] = datetime.now()
-
             user_data_serializer = UserDetailSerializer(data=user_detail_data)
             if user_data_serializer.is_valid():
-                print("extra data validated")
                 user_data_serializer.save(user_info=user_info)
 
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -70,7 +68,6 @@ class GetFlightsView(APIView):
         arrival = request.data.get('arrival', '')
         departure = request.data.get('departure', '')
 
-        
         if FlightModel.objects.filter(arrival=arrival, departure=departure).exists():
             flights = FlightModel.objects.filter(arrival=arrival, departure=departure)
             serialized_flights = FlightSerializer(flights, many=True).data
@@ -79,5 +76,4 @@ class GetFlightsView(APIView):
             return Response({"data": ""}, status=status.HTTP_200_OK)
         
         return Response({"error":"something went wrong"}, status=status.HTTP_400_BAD_REQUEST)
-        
 
