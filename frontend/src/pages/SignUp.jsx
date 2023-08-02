@@ -23,6 +23,9 @@ const SignUp = () => {
     country: "",
   });
 
+  const [errorMsg, setErrorMsg] = useState("");
+  const [isError, setIsError] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prevData) => ({ ...prevData, [name]: value }));
@@ -39,12 +42,27 @@ const SignUp = () => {
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(form)
     })
-    .then(response => response.json)
-    .then(data => {
-      console.log(data);
-      setLoading(false);
-      navigate("/");
+    .then((response) => {
+      if(!response.ok)
+      {
+        return response.json().then(data =>{
+          console.log(data.error);
+          setIsError(true);
+          setErrorMsg(data.error);
+          setLoading(false);
+        });
+      }
+      else{
+        return response.json().then(data => {
+          console.log(data);
+          localStorage.setItem('id', data.id);
+          localStorage.setItem('username', data.username);
+          setLoading(false);
+          navigate("/");
+        });
+      }
     })
+    
     .catch(error =>{
       console.log("error")
       console.log(error);
@@ -180,8 +198,12 @@ const SignUp = () => {
             handleChange={handleChange}
           />
 
+          {isError && (
+            <div className='text-red-400 mt-[20px] ml-1 font-semibold text-[15px]'>{errorMsg}</div>
+          )}
+
           <button
-            type="button"
+            type="submit"
             onClick={handleSubmit}
             className={`w-full text-semibold p-2 mt-3 rounded-full text-[20px] bg-green-300 hover:bg-green-400 ${styles.buttonTransition}`}
           >

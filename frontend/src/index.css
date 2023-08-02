@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+body::-webkit-scrollbar{
+  display: none;
+}
+
+body {
+  background-color: #DBEAFE;
+}
+
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

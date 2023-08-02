@@ -3,7 +3,7 @@ import { styles } from '../styles';
 
 const FormField = ({title, type, id, name, value, placeholder, handleChange}) => {
   return (
-    <div className='mb-4'>
+    <div className='mb-4 w-full'>
         <label className='font-semibold text-[15px]'>{title}:</label>
         <input
         type={type}
