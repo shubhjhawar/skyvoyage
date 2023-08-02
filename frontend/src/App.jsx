@@ -28,7 +28,7 @@ function App() {
         </Link>
       </div>
       </header>
-      <main className='px-[100px] mt-5 py-5 bg-blue-100 w-full flex justify-center items-center'>
+      <main className='py-3 bg-blue-100 w-full flex justify-center items-center'>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sign-up" element={<SignUp />} />
