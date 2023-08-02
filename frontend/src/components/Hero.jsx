@@ -2,7 +2,6 @@ import React from 'react';
 
 import {banner, deal} from "../assets";
 import { styles } from '../styles';
-import SearchFlights from './SearchFlights';
 
 const Hero = () => {
   return (
@@ -28,7 +27,6 @@ const Hero = () => {
           </a>
         </div>
 
-        <SearchFlights />
     </div>
   )
 }
