@@ -42,18 +42,20 @@ const SignUp = () => {
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(form)
     })
-    .then(response => {
+    .then((response) => {
       if(!response.ok)
       {
         return response.json().then(data =>{
           console.log(data.error);
           setIsError(true);
           setErrorMsg(data.error);
+          setLoading(false);
         });
       }
       else{
         return response.json().then(data => {
           console.log(data);
+          localStorage.setItem('id', data.id);
           localStorage.setItem('username', data.username);
           setLoading(false);
           navigate("/");
@@ -201,7 +203,7 @@ const SignUp = () => {
           )}
 
           <button
-            type="button"
+            type="submit"
             onClick={handleSubmit}
             className={`w-full text-semibold p-2 mt-3 rounded-full text-[20px] bg-green-300 hover:bg-green-400 ${styles.buttonTransition}`}
           >

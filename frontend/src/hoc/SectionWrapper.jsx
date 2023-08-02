@@ -3,7 +3,7 @@ import React from 'react'
 const SectionWrapper = (Component, idName) => 
 function HOC() {
     return (
-        <div className="w-full">
+        <div className="px-[100px]">
             <span className='hash-span' id={idName}>
                 &nbsp;
             </span>

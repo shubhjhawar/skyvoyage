@@ -12,6 +12,8 @@ const Navbar = () => {
 
     const [loggedIn, setLoggedIn] = useState(false);
     const [username, setUsername] = useState("");
+
+    const [id, setId] = useState(null);
     
     useEffect(() => {
         if(location.pathname === '/sign-up')
@@ -32,6 +34,7 @@ const Navbar = () => {
     
     useEffect(() => {
         const info = localStorage.getItem('username')
+        setId(localStorage.getItem('id'));
         if(info?.length > 0)
         {
             setUsername(info);
@@ -75,9 +78,9 @@ const Navbar = () => {
         </div>
            {loggedIn ? (
             <div className="flex flex-row justify-end items-end">
-                <div className='relative justify-center w-[40px] h-[40px] bg-gray-200 rounded-full mr-[10px]'>
+                <a href={`/profile/${id}`} className='relative justify-center w-[40px] h-[40px] bg-gray-200 rounded-full mr-[10px]'>
                     <p className='absolute flex flex-row w-[40px] h-[40px] justify-center items-center text-[25px] uppercase font-semibold'>{username[0]}</p>
-                </div>
+                </a>
                 <button 
                     type="button"
                     onClick={handleLogout}
