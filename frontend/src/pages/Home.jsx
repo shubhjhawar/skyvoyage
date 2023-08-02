@@ -5,7 +5,7 @@ import SearchFlights from '../components/SearchFlights';
 
 const Home = () => {
   return (
-    <div>
+    <div className=''>
       <Hero />
       <SearchFlights />
     </div>

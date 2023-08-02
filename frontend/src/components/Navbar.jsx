@@ -89,13 +89,13 @@ const Navbar = () => {
            ) : (
             <div className='flex flex-row justify-end items-end'>
                 <Link to="sign-up">
-                    <div className='m-2 flex'>
-                        <p className={`${styles.buttonTransition} ${styles.navButton} ${signupActive && styles.activeButton}`}>Sign Up</p>
+                    <div className='m-2'>
+                        <p className={`w-[110px] ${styles.buttonTransition} ${styles.navButton} ${signupActive && styles.activeButton}`}>Sign Up</p>
                     </div>
                     </Link>
-                    <Link to="login">
+                <Link to="login">
                     <div className='m-2'>
-                        <p className={`${styles.buttonTransition} ${styles.navButton} ${loginActive && styles.activeButton}`}>Log In</p>
+                        <p className={`w-[110px] ${styles.buttonTransition} ${styles.navButton} ${loginActive && styles.activeButton}`}>Log In</p>
                     </div>
                 </Link>
             </div>

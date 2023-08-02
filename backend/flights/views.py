@@ -76,4 +76,19 @@ class GetFlightsView(APIView):
             return Response({"data": ""}, status=status.HTTP_200_OK)
         
         return Response({"error":"something went wrong"}, status=status.HTTP_400_BAD_REQUEST)
+    
+
+class LoginView(APIView):
+    serialiser_class= UserSerializer
+
+    def post(self, request):
+        username = request.data.get('username', '')
+        password = request.data.get('password', '')
+        
+        if UserModel.objects.filter(username=username, password=password).exists():
+            user = UserModel.objects.filter(username=username, password=password)[0]
+            serailsed_user = UserSerializer(user).data
+            return Response({"data":serailsed_user}, status=status.HTTP_200_OK)
+        else:
+            return Response({"error":"wrong username or password"}, status=status.HTTP_400_BAD_REQUEST)
 
