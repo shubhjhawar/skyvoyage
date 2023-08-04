@@ -4,7 +4,10 @@ const styles = {
     navButton: "flex justify-center border border-white rounded-full font-bold px-6 py-2",
     activeButton: "border border-white text-white items-center bg-blue-600 rounded-full font-bold px-6 py-2",
     bannerIcon: "w-[250px] h-[250px] rounded-xl m-2 cursor-pointer",
-    searchInput: "border-b border-black focus:outline-none focus:border-blue-500 bg-transparent transition duration-300 w-[300px] mx-2 px-2"
+    searchInput: "border-b border-black focus:outline-none focus:border-blue-500 bg-transparent transition duration-300 w-[300px] mx-2 px-2",
+    homeComponent: "flex flex-col w-full h-full bg-gray-100 m-2 p-3 rounded-3xl",
+    homeComponentHeading: 'text-[55px] font-bold mb-[20px] ml-[20px] pb-2 cursor-pointer flex flex-row items-center justify-center',
+    homeComponentPara: 'text-[20px] mb-[20px] ml-[20px] pb-2 cursor-pointer flex flex-row items-center justify-center',
 }
 
 export { styles };
