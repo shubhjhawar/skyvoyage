@@ -10,7 +10,8 @@ const styles = {
     homeComponentPara: 'text-[20px] mb-[20px] ml-[20px] pb-2 flex flex-row items-center justify-center',
     marqueePictures: "border border-gray-300 border-[10px] w-48 h-auto mr-2 rounded-md",
     homeButton:"mt-[10px] p-2 rounded-md bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 text-white font-semibold shadow-md transition-transform",
-    footerIcon: "w-[25px] h-[25px] rounded-md mx-2"
+    footerIcon: "w-[25px] h-[25px] rounded-md mx-2",
+    pageLayout: "flex flex-wrap items-center w-full h-full bg-gray-100 rounded-xl px-3 py-2",
 }
 
 export { styles };

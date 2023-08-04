@@ -49,9 +49,8 @@ const Login = () => {
       }
     })
   }
-
   return (
-    <div className='flex flex-wrap items-center w-full h-full bg-gray-100 rounded-xl px-3 py-2 '>
+    <div className={`${styles.pageLayout}`}>
       <div className="p-2 mb-2 w-full flex flex-col items-center justify-center">
         <p className="font-bold text-black text-[30px] underline">Login</p>
       </div>

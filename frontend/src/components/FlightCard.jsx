@@ -2,8 +2,9 @@ import React from 'react';
 
 
 const FlightCard = ({company, arrival, departure, price, distance, flight_id}) => {
+    const user_info = localStorage.getItem('username');
   return (
-    <a href={`/flights/${flight_id}`} className="block">
+    <a href={user_info ? `/flights/${flight_id}` : `/login`} className="block">
         <div className="flex flex-col items-center px-[30px] mb-[20px]">
             <div className="flex flex-col w-full h-full bg-white shadow-md rounded-2xl p-[20px] cursor-pointer hover:shadow-lg">
                 <div className="flex flex-row justify-between items-center mb-2">

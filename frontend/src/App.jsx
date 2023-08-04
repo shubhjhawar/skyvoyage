@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import FlightPage from './pages/FlightPage';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/flights/:flight_id" element={<FlightPage />} />
         </Routes>
       </main>
       <footer>
