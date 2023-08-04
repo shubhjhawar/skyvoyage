@@ -6,6 +6,9 @@ import SignUp from './pages/SignUp';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Contact from './pages/Contact';
+import About from './pages/About';
 
 
 function App() {
@@ -20,8 +23,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </BrowserRouter>
   )
 }

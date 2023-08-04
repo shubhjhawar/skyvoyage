@@ -64,7 +64,7 @@ const Navbar = () => {
     }
 
   return (
-    <div className='w-full py-3 px-[100px] flex flex-row justify-between items-center bg-blue-400'>
+    <div id='navbar' className='w-full py-3 px-[100px] flex flex-row justify-between items-center bg-blue-400'>
         <Link to="/">
             <img src={logo} alt="logo" className='w-[130px] h-[55px] rounded-3xl object-cover shadow-md'/>
         </Link>

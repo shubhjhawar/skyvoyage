@@ -49,17 +49,18 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-row justify-center items-center -mt-[100px]">
-          <a className={`${styles.bannerIcon}`} onClick={() => scrollToElement('search')}>
+          <a className={`${styles.bannerIcon}`} onClick={() => scrollToElement('deal')}>
             <img src={deal} alt="background" className='absolute w-[250px] h-[250px] rounded-xl object-contain z-[0] '/>
             <h2 className='relative text-[50px] font-semibold ml-2 text-blue-600 '>Deal</h2>
             <p className='relative m-2 font-semibold  text-red-600 text-[19px]'>20% Off Flights to Europe:</p>
             <p className='relative m-2 text-[17px] mt-3 font-semibold leading-[25px]'>Book your flights to Europe within the next 72 hours and get an exclusive 20% discount on your ticket price</p>
           </a>
-          <a className={`${styles.bannerIcon} bg-black z-10`}>
-            
+          <a className={`${styles.bannerIcon} bg-[#333333] z-10`} onClick={() => scrollToElement('plans')}>
+            <h2 className='relative text-[40px] mt-2 font-semibold ml-2 text-white'>Personalized Plans</h2>
+            <p className='relative m-2 mt-[40px] font-semibold mt-3 text-gray-300 text-[20px] flex flex-col justify-center items-center'>Your Journey - Your Way</p>
           </a>
 
-          <a className={`${styles.bannerIcon} bg-blue-600 z-10`}>
+          <a className={`${styles.bannerIcon} bg-blue-600 z-10`} onClick={() => scrollToElement('flypass')}>
             <h2 className='relative text-[50px] font-semibold ml-2 text-white'>Fly Pass</h2>
             <p className='relative m-2 font-semibold mt-3 text-[#263547] text-[25px] flex flex-col justify-center items-center'>Unlock the Skies: Fly Pass – Your Ticket to Freedom!</p>
           </a>

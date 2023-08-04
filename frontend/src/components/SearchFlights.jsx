@@ -71,7 +71,7 @@ const SearchFlights = () => {
 
                     <button
                         type="submit"
-                        className={`${styles.buttonTransition} ml-3 bg-blue-600 py-2 px-4 rounded-full text-white`}
+                        className={`${styles.homeButton} ml-2 mb-5 bg-blue-600 py-2 px-4 text-white`}
                         >
                     {isSearching ? "Searching..." : "Search Flights"}
                     </button>
