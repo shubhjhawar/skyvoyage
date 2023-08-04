@@ -10,6 +10,32 @@ body {
   background-color: #DBEAFE;
 }
 
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee {
+  animation: marquee-scroll 20s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%); 
+  }
+}
+
+/* Set the width of the marquee to accommodate all the images */
+.marquee img {
+  flex-shrink: 0;
+}
+
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

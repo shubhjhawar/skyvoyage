@@ -44,7 +44,7 @@ const SearchFlights = () => {
 
   return (
         <div>
-            <div className="flex flex-col  w-full h-full bg-gray-100 m-2 p-3 rounded-3xl">
+            <div className={`${styles.homeComponent}`}>
                 <h1 className='text-[45px] font-bold mb-[20px] ml-[20px] pb-2'>Find the best flight for yourself, here!</h1>
                 <form className="flex flex-row justify-center items-center mb-[20px]"
                     onSubmit={handleSubmit}
@@ -71,7 +71,7 @@ const SearchFlights = () => {
 
                     <button
                         type="submit"
-                        className={`${styles.buttonTransition} ml-3 bg-blue-600 py-2 px-4 rounded-full text-white`}
+                        className={`${styles.homeButton} ml-2 mb-5 bg-blue-600 py-2 px-4 text-white`}
                         >
                     {isSearching ? "Searching..." : "Search Flights"}
                     </button>
