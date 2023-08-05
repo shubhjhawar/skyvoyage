@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { SectionWrapper } from '../hoc';
 import FormField from '../components/FormField';
 import { styles } from '../styles';
@@ -7,6 +7,9 @@ import { styles } from '../styles';
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const flight_id = new URLSearchParams(location.search).get('flight_id');
 
   const [errorMsg, setErrorMsg] = useState("");
   const [isError, setIsError] = useState(false);
@@ -44,14 +47,20 @@ const Login = () => {
         return response.json().then(data => {
           localStorage.setItem('id', data.data.id);
           localStorage.setItem('username', data.data.username);
-          navigate("/");
+          
+          if(flight_id)
+          {
+            navigate(`/flights/${flight_id}`)
+          } else {
+            navigate('/')
+          }
+
         })
       }
     })
   }
-
   return (
-    <div className='flex flex-wrap items-center w-full h-full bg-gray-100 rounded-xl px-3 py-2 '>
+    <div className={`${styles.pageLayout}`}>
       <div className="p-2 mb-2 w-full flex flex-col items-center justify-center">
         <p className="font-bold text-black text-[30px] underline">Login</p>
       </div>
