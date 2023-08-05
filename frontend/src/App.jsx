@@ -7,13 +7,11 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Contact from './pages/Contact';
-import About from './pages/About';
 import FlightPage from './pages/FlightPage';
-
+import Extra from './pages/Extra';
+import { flypass, exclusiveDiscount, personalizedTravel, contact, about} from './constants';
 
 function App() {
-
   return (
     <BrowserRouter>
       <header >
@@ -24,9 +22,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
           <Route path="/flights/:flight_id" element={<FlightPage />} />
+          <Route path="/deal" element={<Extra {...exclusiveDiscount} />} />
+          <Route path="/flypass" element={<Extra {...flypass}/>} />
+          <Route path="/plans" element={<Extra {...personalizedTravel}/>} />
+          <Route path="/contact" element={<Extra {...contact}/>} />
+          <Route path="/about" element={<Extra {...about}/>} />
         </Routes>
       </main>
       <footer>
