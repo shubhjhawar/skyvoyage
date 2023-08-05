@@ -78,10 +78,22 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'skyvoyage',
+        'CLIENT': {
+            'host': 'mongodb+srv://shubhjhawar78:shubh123@atlascluster.zyxmfw6.mongodb.net/',
+            'username': 'shubhjhawar78',
+            'password': 'shubh123',
+            # 'authMechanism': 'SCRAM-SHA-1',  # Adjust the auth mechanism as per your MongoDB setup
+        },
     }
 }
 
