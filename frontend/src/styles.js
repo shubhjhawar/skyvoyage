@@ -11,8 +11,13 @@ const styles = {
     marqueePictures: "border border-gray-300 border-[10px] w-48 h-auto mr-2 rounded-md",
     homeButton:"mt-[10px] p-2 rounded-md bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 text-white font-semibold shadow-md transition-transform",
     footerIcon: "w-[25px] h-[25px] rounded-md mx-2",
-    pageLayout: "flex flex-wrap items-center w-full h-full bg-gray-100 rounded-xl px-3 py-2",
+    pageLayout: "flex flex-col items-center w-[1000px] h-full bg-gray-100 rounded-xl px-3 py-2",
     popupLayout: "fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50",
+    profilebutton: "w-[490px] flex flex-col items-center text-[30px] tracking-wide  cursor-pointer",
+    profileline: " mt-[10px] bg-gray-300 w-full rounded-full mb-[10px]",
+    profileContainer: "p-[20px] m-[10px] bg-gray-200 shadow-md w-full h-full rounded-3xl",
+    profileHeadingBorder: "text-[25px] flex flex-col justify-between items-center tracking-wide border cursor-pointer",
+    profileHeading: "bg-blue-200 px-[50px] py-2  mb-[10px] rounded-2xl shadow-md"
 }
 
 export { styles };

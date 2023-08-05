@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import ValidationError 
 
-from .models import UserModel, FlightModel, BookingModel
+from .models import UserModel, FlightModel, BookingModel, UserDetailModel
 from .serializers import UserSerializer, UserDetailSerializer, FlightSerializer, BookingSerializer
 
 
@@ -123,3 +123,42 @@ class GetFlightView(APIView):
             return Response({"success":serializer.data}, status=status.HTTP_201_CREATED)
         else:
             return Response({"failure":serializer.errors},  status=status.HTTP_400_BAD_REQUEST)
+        
+class GetUserProfileView(APIView):
+    serializer_class = UserSerializer
+
+    def get(self, request, user_id):
+        if UserModel.objects.filter(id=user_id).exists():
+            user_object = UserModel.objects.filter(id=user_id)[0]
+            user_dict ={}
+
+            user = UserSerializer(user_object).data
+            user_dict['first_name'] = user['first_name']
+            user_dict['last_name'] = user['last_name']
+            user_dict['username'] = user['username']
+            user_dict['email'] = user['email']
+
+            user_details_object = UserDetailModel.objects.filter(user_info=user_id)[0]
+            user_details = UserDetailSerializer(user_details_object).data
+            user_dict['gender'] = user_details['gender']
+            user_dict['phone_number'] = user_details['phone_number']
+            user_dict['address1'] = user_details['address1']
+            user_dict['address2'] = user_details['address2']
+            user_dict['city'] = user_details['city']
+            user_dict['state'] = user_details['state']
+            user_dict['country'] = user_details['city']
+
+    
+            bookings = BookingModel.objects.filter(user=user_id)
+            flights = []
+
+            for booking in bookings:
+                flight_id = booking.flight.id
+                flight_object = FlightModel.objects.filter(id=flight_id)[0]
+                flight = FlightSerializer(flight_object).data
+                flights.append(flight)   
+
+            return Response({"data":user_dict, "flights":flights},status=status.HTTP_200_OK)
+        else:
+            return Response({"error":"user not found"},status=status.HTTP_400_BAD_REQUEST)
+        
