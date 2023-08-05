@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FlightPage from './pages/FlightPage';
 import Extra from './pages/Extra';
+import Profile from './pages/Profile';
 import { flypass, exclusiveDiscount, personalizedTravel, contact, about} from './constants';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/plans" element={<Extra {...personalizedTravel}/>} />
           <Route path="/contact" element={<Extra {...contact}/>} />
           <Route path="/about" element={<Extra {...about}/>} />
+          <Route path="/profile/:user_id" element={<Profile />} />
         </Routes>
       </main>
       <footer>

@@ -61,7 +61,7 @@ const NavigateTo = ({message}) => {
     useEffect(() => {
         if(count == 0)
         {
-            navigate(`/user/${user_id}`)
+            navigate(`/profile/${user_id}`)
             
         }
     }, [count])
