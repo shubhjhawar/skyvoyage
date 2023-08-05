@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { SectionWrapper } from '../hoc';
 import FormField from '../components/FormField';
 import { styles } from '../styles';
@@ -7,6 +7,9 @@ import { styles } from '../styles';
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const flight_id = new URLSearchParams(location.search).get('flight_id');
 
   const [errorMsg, setErrorMsg] = useState("");
   const [isError, setIsError] = useState(false);
@@ -44,7 +47,14 @@ const Login = () => {
         return response.json().then(data => {
           localStorage.setItem('id', data.data.id);
           localStorage.setItem('username', data.data.username);
-          navigate("/");
+          
+          if(flight_id)
+          {
+            navigate(`/flights/${flight_id}`)
+          } else {
+            navigate('/')
+          }
+
         })
       }
     })

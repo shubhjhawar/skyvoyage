@@ -10,6 +10,7 @@ const Navbar = () => {
     const [signupActive, setsignupActive] = useState(false);
     const [loginActive, setLoginActive] = useState(false);
     const [bookingActive, setBookingActive] = useState(true);
+    const [refreshed, setRefreshed] = useState(false);
 
     const [loggedIn, setLoggedIn] = useState(false);
     const [username, setUsername] = useState("");
@@ -31,10 +32,18 @@ const Navbar = () => {
             setsignupActive(false);
             setBookingActive(false);
 
-        } else if(location.pathname === '/flights')
+        } else if(location.pathname.startsWith('/flights/'))
         {
             setBookingActive(true);
+            setRefreshed(true);
+
+            if(refreshed)
+            {
+                window.location.reload();
+                setRefreshed(false);
+            }
         }
+
         
     }, [location])
     

@@ -8,7 +8,6 @@ import { motion } from 'framer-motion';
 import { fadeIn } from '../utils/motion';
 
 
-
 const CustomPopup = ({ message, onConfirm, onCancel }) => {
     return (
     <div className={`${styles.popupLayout}`}>
@@ -92,6 +91,21 @@ const FlightPage = () => {
     const [confirmBooking, setConfirmBooking] = useState(false);
     const [loading, setLoading] = useState(false);
     const [redirect, setRedirect] = useState(false);
+
+    const navigate = useNavigate();
+    const user_info = localStorage.getItem('username');
+    console.log('user_info:', user_info);
+
+    useEffect(() => {
+    
+        if (user_info ===  null) {
+            console.log("no user found");
+            // navigate('/login');
+            navigate(`/login?flight_id=${params.flight_id}`);
+        } else {
+            console.log('User found:', user_info);
+        }
+    }, []);
 
     useEffect(() => {
         const url = `http://127.0.0.1:8000/api/flights/${params.flight_id}`
