@@ -2,10 +2,16 @@ from django.db import models
 import string
 import random
 
-# Create your models here.
 
-def generate_activation_code():                         #this function is used to generate a 6 letter code which is unique to all the new users
-    return ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(6))
+def generate_activation_code():
+    length = 6
+    while True:
+        code = ''.join(random.choices(string.ascii_uppercase, k=length))
+        if FlightModel.objects.filter(flight_id = code).count() == 0:
+            break
+    return code
+
+# Create your models here.
 
 class UserModel(models.Model):
     first_name = models.CharField(max_length=100)
@@ -33,7 +39,11 @@ class FlightModel(models.Model):
     departure = models.CharField(max_length=100)
     price = models.IntegerField()
     distance = models.IntegerField()
-    flight_id = models.CharField(max_length=6, default=generate_activation_code(), null=True)
+    flight_id = models.CharField(max_length=6, default=generate_activation_code, null=True)
 
+
+class BookingModel(models.Model):
+    user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+    flight = models.ForeignKey(FlightModel, on_delete=models.CASCADE)
 
 

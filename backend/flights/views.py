@@ -5,8 +5,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import ValidationError 
 
-from .models import UserModel, FlightModel
-from .serializers import UserSerializer, UserDetailSerializer, FlightSerializer
+from .models import UserModel, FlightModel, BookingModel
+from .serializers import UserSerializer, UserDetailSerializer, FlightSerializer, BookingSerializer
 
 
 # Create your views here.
@@ -92,3 +92,34 @@ class LoginView(APIView):
         else:
             return Response({"error":"wrong username or password"}, status=status.HTTP_400_BAD_REQUEST)
 
+
+class GetFlightView(APIView):
+    serializer_class = FlightSerializer
+
+    def get(self, request, flight_id):
+        try:
+            if FlightModel.objects.filter(flight_id=flight_id).exists():
+                flight = FlightModel.objects.filter(flight_id=flight_id)[0]
+                serialized_flight = FlightSerializer(flight).data
+                return Response({"data":serialized_flight}, status=status.HTTP_200_OK)
+            else:
+                return Response({"error":"page not found"}, status=status.HTTP_404_NOT_FOUND)    
+        except Exception as e:
+            return Response({"error":e}, status=status.HTTP_404_NOT_FOUND)
+
+    def post(self, request, flight_id):
+        username = request.data.get('username', '')
+
+        user = UserModel.objects.filter(username=username)[0]
+        flight = FlightModel.objects.filter(flight_id=flight_id)[0]
+
+        request.data['user'] = user.id
+        request.data['flight'] = flight.id
+
+        # it only needs the id for the foreign key elements and not the whole object
+        serializer = BookingSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"success":serializer.data}, status=status.HTTP_201_CREATED)
+        else:
+            return Response({"failure":serializer.errors},  status=status.HTTP_400_BAD_REQUEST)

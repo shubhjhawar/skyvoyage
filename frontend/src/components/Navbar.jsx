@@ -9,6 +9,8 @@ const Navbar = () => {
     const location = useLocation();
     const [signupActive, setsignupActive] = useState(false);
     const [loginActive, setLoginActive] = useState(false);
+    const [bookingActive, setBookingActive] = useState(true);
+    const [refreshed, setRefreshed] = useState(false);
 
     const [loggedIn, setLoggedIn] = useState(false);
     const [username, setUsername] = useState("");
@@ -28,7 +30,20 @@ const Navbar = () => {
         } else if(location.pathname === '/'){
             setLoginActive(false);
             setsignupActive(false);
+            setBookingActive(false);
+
+        } else if(location.pathname.startsWith('/flights/'))
+        {
+            setBookingActive(true);
+            setRefreshed(true);
+
+            if(refreshed)
+            {
+                window.location.reload();
+                setRefreshed(false);
+            }
         }
+
         
     }, [location])
     
@@ -69,7 +84,7 @@ const Navbar = () => {
             <img src={logo} alt="logo" className='w-[130px] h-[55px] rounded-3xl object-cover shadow-md'/>
         </Link>
         <div className='flex flex-row justify-center items-center'>
-            <a onClick={() => scrollToElement('search')} className={`cursor-pointer mr-2 ${signupActive ? 'hidden':'block'} ${loginActive ? 'hidden':'block'}`}>
+            <a onClick={() => scrollToElement('search')} className={`cursor-pointer mr-2 ${signupActive ? 'hidden':'block'} ${loginActive ? 'hidden':'block'} ${bookingActive ? 'hidden':'block'}`} >
                 <div className={`${styles.buttonTransition} ${styles.navButton} flex items-center justify-center flex-row px-[60px]`}>
                     <p className='px-2'>Search Flights </p>
                         <FaSearch className=' mr-2 text-blue-600'/>

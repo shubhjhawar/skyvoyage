@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import UserModel, UserDetailModel, FlightModel
+from .models import UserModel, UserDetailModel, FlightModel, BookingModel
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -33,4 +33,9 @@ class FlightSerializer(serializers.ModelSerializer):
     class Meta:
         model = FlightModel
         fields = '__all__'
+
+class BookingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BookingModel
+        fields = ["user","flight"]
         
