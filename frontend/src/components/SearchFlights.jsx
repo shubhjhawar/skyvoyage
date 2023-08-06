@@ -5,6 +5,7 @@ import {SectionWrapper} from "../hoc";
 import { styles } from '../styles';
 import * as Loader from 'react-loader-spinner';
 import FlightCard from './FlightCard';
+import { flightPrompts } from '../constants';
 
 
 const SearchFlights = () => {
@@ -21,6 +22,15 @@ const SearchFlights = () => {
         const { name, value } = e.target;
         setSearchForm((prevData) => ({ ...prevData, [name]: value }));
     };
+
+    const addFlights = () => {
+        const randomIndex =Math.floor(Math.random() * flightPrompts.length);
+        const randomFlight = flightPrompts[randomIndex];
+        console.log(randomFlight)
+
+        setSearchForm((prevData) => ({...prevData, arrival:randomFlight.arrival, departure:randomFlight.departure}))
+        
+    }
 
     const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,6 +59,13 @@ const SearchFlights = () => {
                 <form className="flex flex-row justify-center items-center mb-[20px]"
                     onSubmit={handleSubmit}
                 >
+                    <button
+                     type="button"
+                     onClick={addFlights}
+                     className={`p-2 m-2 rounded-md text-white shadow-md hover:bg-gray-600 bg-gray-400 mb-[15px]`}
+                    >
+                        surprise me
+                    </button>
                     <input
                         type="text"
                         value={searchForm.departure}

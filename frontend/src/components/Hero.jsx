@@ -24,7 +24,7 @@ const Hero = () => {
               variants={slideIn('left', 'spring', 0.5, 2)}
               initial="hidden" 
               animate="show" 
-              className="absolute top-0 text-[200px] font-semibold uppercase z-10 text-blue-200 px-2 text-shadow-md "
+              className="absolute top-0 text-[200px] font-semibold uppercase z-10 text-blue-400 px-2 text-shadow-md "
             >
               skyvoyage
             </motion.p>

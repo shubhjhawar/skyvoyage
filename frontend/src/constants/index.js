@@ -37,8 +37,51 @@ export const about = {
     subpara3: "With a wide selection of flights, personalized itineraries, and exceptional customer service, SkyVoyage is your go-to choice for all your travel aspirations. Whether you're a seasoned globetrotter or a first-time flyer, we've got something special for everyone.",
     subpara4: "Join us as we embark on a voyage of discovery and immerse ourselves in the wonders of the world. Let your dreams take flight with SkyVoyage, and let the adventures begin!",
 };
-  
-  
+
+
+export const flightPrompts = [
+    {
+        arrival: "London",
+        departure: "Toronto"
+    },
+    {
+        arrival: "New York",
+        departure: "Paris"
+    },
+    {
+        arrival: "Sydney",
+        departure: "Tokyo"
+    },
+    {
+        arrival: "Los Angeles",
+        departure: "Chicago"
+    },
+    {
+        arrival: "Berlin",
+        departure: "Rome"
+    },
+    {
+        arrival: "Moscow",
+        departure: "Beijing"
+    },
+    {
+        arrival: "Dubai",
+        departure: "Singapore"
+    },
+    {
+        arrival: "Cairo",
+        departure: "Johannesburg"
+    },
+    {
+        arrival: "Amsterdam",
+        departure: "Madrid"
+    },
+    {
+        arrival: "Mumbai",
+        departure: "Bangkok"
+    }
+];
+
 
   
   

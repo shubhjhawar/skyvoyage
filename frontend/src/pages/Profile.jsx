@@ -80,7 +80,7 @@ const Profile = () => {
                         <p className={`${styles.profileHeading}`}>My Flights</p>
                     </div>
                     {userFlights.length!==0 ? (
-                        userFlights.map((flight) => (
+                        userFlights.slice().reverse().map((flight) => (
                             <div className={`my-[10px] p-1`}>
                                 <div className="flex flex-col items-center px-[30px] mb-[20px]">
                                     <div className="flex flex-col w-full h-full bg-white shadow-md rounded-2xl p-[20px] cursor-pointer hover:shadow-lg">
