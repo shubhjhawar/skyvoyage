@@ -93,9 +93,9 @@ const Navbar = () => {
         </div>
            {loggedIn ? (
             <div className="flex flex-row justify-end items-end">
-                <a href={`/profile/${id}`} className='relative justify-center w-[40px] h-[40px] bg-gray-200 rounded-full mr-[10px]'>
+                <Link to={`/profile/${id}`} className='relative justify-center w-[40px] h-[40px] bg-gray-200 rounded-full mr-[10px]'>
                     <p className='absolute flex flex-row w-[40px] h-[40px] justify-center items-center text-[25px] uppercase font-semibold'>{username[0]}</p>
-                </a>
+                </Link>
                 <button 
                     type="button"
                     onClick={handleLogout}

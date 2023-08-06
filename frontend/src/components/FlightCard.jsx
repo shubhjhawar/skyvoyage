@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const FlightCard = ({company, arrival, departure, price, distance, flight_id}) => {
   return (
-    <a href={`/flights/${flight_id}`} className="block">
+    <Link to={`/flights/${flight_id}`} className="block">
         <div className="flex flex-col items-center px-[30px] mb-[20px]">
             <div className="flex flex-col w-full h-full bg-white shadow-md rounded-2xl p-[20px] cursor-pointer hover:shadow-lg">
                 <div className="flex flex-row justify-between items-center mb-2">
@@ -23,7 +24,7 @@ const FlightCard = ({company, arrival, departure, price, distance, flight_id}) =
             </div>
             
         </div>
-    </a>
+    </Link>
 
 
   )
