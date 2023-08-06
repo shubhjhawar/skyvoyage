@@ -23,12 +23,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/flights/:flight_id" element={<FlightPage />} />
           <Route path="/deal" element={<Extra {...exclusiveDiscount} />} />
           <Route path="/flypass" element={<Extra {...flypass}/>} />
           <Route path="/plans" element={<Extra {...personalizedTravel}/>} />
           <Route path="/contact" element={<Extra {...contact}/>} />
           <Route path="/about" element={<Extra {...about}/>} />
+          <Route path="/flights/:flight_id" element={<FlightPage />} />
           <Route path="/profile/:user_id" element={<Profile />} />
         </Routes>
       </main>

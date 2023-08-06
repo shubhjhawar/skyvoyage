@@ -5,7 +5,7 @@ import { image1, image2, image3, image4, image5 } from '../assets';
 
 const Deal = () => {
   return (
-    <a href="/deal" className={`${styles.homeComponent}`}>
+    <Link to="/deal" className={`${styles.homeComponent}`}>
         <h1 className={`${styles.homeComponentHeading} text-red-500`}>Deal</h1>
         <p className={`${styles.homeComponentPara} -mt-[20px]`}>This is your chance to get a limited time exclusive discount of 20% on any flights going to Europe, this Fall</p>
         <div className="marquee-container">
@@ -24,7 +24,7 @@ const Deal = () => {
           Click here to get the deal
         </button>
 
-    </a>
+    </Link>
 
   )
 }
