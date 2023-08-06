@@ -2,6 +2,7 @@ import React from 'react';
 import { styles } from '../styles';
 import { SectionWrapper } from '../hoc';
 import { image1, image2, image3, image4, image5 } from '../assets';
+import { Link } from 'react-router-dom';
 
 const Deal = () => {
   return (
