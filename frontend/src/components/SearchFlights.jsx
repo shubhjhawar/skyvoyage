@@ -27,7 +27,7 @@ const SearchFlights = () => {
     setIsSearching(true);
     console.log(searchForm);
 
-    const response = await fetch('http://127.0.0.1:8000/api/get-flights', {
+    const response = await fetch('https://shubhj45.pythonanywhere.com/api/get-flights', {
         method: 'POST',
         headers: { "content-type": "application/json" },
         body: JSON.stringify(searchForm),

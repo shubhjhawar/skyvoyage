@@ -108,7 +108,7 @@ const FlightPage = () => {
     }, []);
 
     useEffect(() => {
-        const url = `http://127.0.0.1:8000/api/flights/${params.flight_id}`
+        const url = `https://shubhj45.pythonanywhere.com/api/flights/${params.flight_id}`
 
         fetch(url,{
             method:"GET",
@@ -136,7 +136,7 @@ const FlightPage = () => {
 
     const HandleBooking = async () => {
         try{
-            const url = `http://127.0.0.1:8000/api/flights/${params.flight_id}`
+            const url = `https://shubhj45.pythonanywhere.com/api/flights/${params.flight_id}`
             const user = localStorage.getItem('username');
             const username = {'username':user}
 

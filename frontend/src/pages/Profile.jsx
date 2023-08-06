@@ -19,7 +19,7 @@ const Profile = () => {
     const [userFlights, setUserFlights] = useState(null);
 
     useEffect(() => {
-        const url = `http://127.0.0.1:8000/api/profile/${params.user_id}`;
+        const url = `https://shubhj45.pythonanywhere.com/api/profile/${params.user_id}`;
 
         fetch(url, {
             method:'GET',

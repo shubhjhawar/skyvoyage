@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-)&3e8&!*1l!3g*59h56lh_-8czf@65_h+so=5_udye**uehaxi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'https://shubhj45.pythonanywhere.com']
 
 
 # Application definition
@@ -78,24 +78,24 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'skyvoyage',
-        'CLIENT': {
-            'host': 'mongodb+srv://shubhjhawar78:shubh123@atlascluster.zyxmfw6.mongodb.net/',
-            'username': 'shubhjhawar78',
-            'password': 'shubh123',
-            # 'authMechanism': 'SCRAM-SHA-1',  # Adjust the auth mechanism as per your MongoDB setup
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'skyvoyage',
+#         'CLIENT': {
+#             'host': 'mongodb+srv://shubhjhawar78:shubh123@atlascluster.zyxmfw6.mongodb.net/',
+#             'username': 'shubhjhawar78',
+#             'password': 'shubh123',
+#             # 'authMechanism': 'SCRAM-SHA-1',  # Adjust the auth mechanism as per your MongoDB setup
+#         },
+#     }
+# }
 
 
 # Password validation
