@@ -5,6 +5,8 @@ Welcome to SkyVoyage, a lightweight and aesthetically pleasing flight booking sy
 ## Live Demo
 You can experience SkyVoyage in action by visiting the live website: [https://skyvoyage.vercel.app/](https://skyvoyage.vercel.app/)
 
+<img width="960" alt="sky" src="https://github.com/shubhjhawar/skyvoyage/assets/67875612/fea496ff-557b-4e72-8be8-aad755f6bba6">
+
 ## Features
 
 - User Authentication: Users can sign up and log in to their accounts to access personalized features.
