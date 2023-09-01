@@ -61,28 +61,28 @@ python manage.py runserver
 
 We have exciting plans to enhance SkyVoyage and provide an even better user experience. Here are some features and improvements we plan to implement in the future:
 
-# Real-time Flight Data: 
+Real-time Flight Data: 
 Integrate with a reliable flight data API to fetch real-time information about flight schedules, availability, and pricing. This will ensure users get the most up-to-date flight options.
 
-# Flight Dates and Seat Selection: 
+Flight Dates and Seat Selection: 
 Enhance the booking process by allowing users to select specific travel dates and preferred seats. This will provide users with more flexibility and personalization options.
 
-# Email Confirmation: 
+Email Confirmation: 
 Implement an automated email confirmation system that sends a booking confirmation to users once they successfully book a flight. This will help users stay informed about their travel plans.
 
-# Payment Gateway Integration: 
+Payment Gateway Integration: 
 Integrate a secure payment gateway to facilitate online payments for flight bookings. This will streamline the booking process and provide a seamless experience for users.
 
-# User Profiles and Preferences: 
+User Profiles and Preferences: 
 Create user profiles that store travel preferences and previous bookings. This will allow users to access their booking history and receive personalized flight recommendations.
 
-# Multi-language Support: 
+Multi-language Support: 
 Add support for multiple languages to make SkyVoyage accessible to a broader audience.
 
-# Flight Reviews and Ratings: 
+Flight Reviews and Ratings: 
 Implement a feature that allows users to leave reviews and ratings for flights they have taken. This will help other users make informed decisions while booking.
 
-# Interactive Flight Map: 
+Interactive Flight Map: 
 Provide an interactive map that displays available flights based on user-selected destinations and dates.
 
 
